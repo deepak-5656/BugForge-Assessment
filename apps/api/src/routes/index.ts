@@ -76,4 +76,6 @@ router.post(
 router.get('/dashboard', ...protect(dashboard.dashboard));
 router.get('/notifications', ...protect(notifications.listNotifications));
 router.patch('/notifications/:notificationId/read', ...protect(notifications.readNotification));
+router.patch('/comments/:commentId', ...protect(comments.updateComment));
+router.delete('/comments/:commentId', ...protect(comments.deleteComment));
 export default router;
