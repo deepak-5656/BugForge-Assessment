@@ -8,7 +8,7 @@ import { errorHandler, notFound } from './middleware/error.js';
 export const createApp = () => {
   const app = express();
   app.use(pinoHttp());
-  app.use(cors({ origin: (_origin, callback) => callback(null, true), credentials: true }));
+  app.use(cors({ origin: process.env.CORS_ORIGIN || 'http://localhost:3000', credentials: true }));
   app.use(express.json({ limit: '1mb' }));
   app.get('/health', (_req, res) =>
     res.json({ success: true, message: 'Healthy', data: { status: 'ok' } }),
